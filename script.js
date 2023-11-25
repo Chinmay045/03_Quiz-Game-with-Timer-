@@ -43,4 +43,8 @@ const laodQuestion = () => {
  
 }
 
+const submitQuiz = () => {
+
+}
+
 laodQuestion();
