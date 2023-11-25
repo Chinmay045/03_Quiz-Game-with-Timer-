@@ -6,7 +6,7 @@ const questions = [
         "b": "CSS",
         "c": "JavaScript",
         "d": "Php",
-        "correct": "a"
+        "correct": "a",
     },
 
     {
@@ -15,7 +15,7 @@ const questions = [
         "b": "1995",
         "c": "1994",
         "d": "None of these",
-        "correct": "b"
+        "correct": "b",
     },
 
     {
@@ -24,14 +24,14 @@ const questions = [
         "b": "Cascading Style Sheet",
         "c": "Json Object notation",
         "d": "Helicopter teminals",
-        "correct": "b"
+        "correct": "b",
     }
 ]
 
 
 let index = 0;
 const quesBox = document.getElementById("quesbox");
-const optionInputs = document.querySelectorAll(".options");
+const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
     const data = questions[index];
     console.log(data);
@@ -40,7 +40,6 @@ const laodQuestion = () => {
     optionInputs[1].nextElementSibling.innerText = data.b;
     optionInputs[2].nextElementSibling.innerText = data.c;
     optionInputs[3].nextElementSibling.innerText = data.d;
-
  
 }
 
