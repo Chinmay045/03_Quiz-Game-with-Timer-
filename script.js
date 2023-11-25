@@ -36,10 +36,13 @@ let wrong = 0;
 const quesBox = document.getElementById("quesbox");
 const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
+    if (index === total) {
+        return endQuiz();
+    }
     reset();
     const data = questions[index];
     console.log(data);
-    quesBox.innerText = `${index + 2}) ${data.que}`;
+    quesBox.innerText = `${index + 1}) ${data.que}`;
     optionInputs[0].nextElementSibling.innerText = data.a;
     optionInputs[1].nextElementSibling.innerText = data.b;
     optionInputs[2].nextElementSibling.innerText = data.c;
@@ -50,7 +53,7 @@ const laodQuestion = () => {
 const submitQuiz = () => {
     const ans = getAnswer();
     let data = questions[index];
-    if (ans === data.checked) {
+    if (ans == data.correct) {
         right++;
     } else {
         wrong++;
@@ -61,13 +64,16 @@ const submitQuiz = () => {
 }
 
 const getAnswer = () => {
+    let answer ;
     optionInputs.forEach(
         (inputs) => {
             if (inputs.checked) {
-                return inputs.value;
+                // return inputs.value;
+                answer = inputs.value;
             }
         }
     )
+    return answer;
 }
 
 const reset = () => {
@@ -76,5 +82,11 @@ const reset = () => {
             input.checked = false;
         }
     )
+}
+
+const endQuiz = () => {
+    document.getElementById("box").innerHTML = `<h3>Thank you for playing</h3> 
+    <h2>${right} / ${total} are correct</h2>`
+
 }
 laodQuestion();
