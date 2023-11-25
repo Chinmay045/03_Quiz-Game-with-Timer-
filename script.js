@@ -35,16 +35,25 @@ const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
     const data = questions[index];
     console.log(data);
-    quesBox.innerText = `${index +2}) ${data.que}`;
+    quesBox.innerText = `${index + 2}) ${data.que}`;
     optionInputs[0].nextElementSibling.innerText = data.a;
     optionInputs[1].nextElementSibling.innerText = data.b;
     optionInputs[2].nextElementSibling.innerText = data.c;
     optionInputs[3].nextElementSibling.innerText = data.d;
- 
+
 }
 
 const submitQuiz = () => {
 
 }
 
+const getAnswer = () => {
+    optionInputs.forEach{
+        (inputs) => {
+            if (inputs.checked) {
+                return inputs.value;
+            }
+        }
+    }
+}
 laodQuestion();
