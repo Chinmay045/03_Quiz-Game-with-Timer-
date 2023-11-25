@@ -36,6 +36,7 @@ let wrong = 0;
 const quesBox = document.getElementById("quesbox");
 const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
+    reset();
     const data = questions[index];
     console.log(data);
     quesBox.innerText = `${index + 2}) ${data.que}`;
@@ -65,6 +66,14 @@ const getAnswer = () => {
             if (inputs.checked) {
                 return inputs.value;
             }
+        }
+    )
+}
+
+const reset = () => {
+    optionInputs.forEach(
+        (input) => {
+            input.checked = false;
         }
     )
 }
