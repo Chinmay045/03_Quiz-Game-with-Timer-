@@ -36,6 +36,9 @@ let wrong = 0;
 const quesBox = document.getElementById("quesbox");
 const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
+    if (index === total) {
+        return endQuiz();
+    }
     reset();
     const data = questions[index];
     console.log(data);
