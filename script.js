@@ -30,6 +30,9 @@ const questions = [
 
 
 let index = 0;
+let total = questions.length;
+let right = 0;
+let wrong = 0;
 const quesBox = document.getElementById("quesbox");
 const optionInputs = document.querySelectorAll('.options');
 const laodQuestion = () => {
@@ -44,16 +47,25 @@ const laodQuestion = () => {
 }
 
 const submitQuiz = () => {
-
+    const ans = getAnswer();
+    let data = questions[index];
+    if (ans === data.checked) {
+        right++;
+    } else {
+        wrong++;
+    }
+    index++;
+    laodQuestion();
+    return;
 }
 
 const getAnswer = () => {
-    optionInputs.forEach{
+    optionInputs.forEach(
         (inputs) => {
             if (inputs.checked) {
                 return inputs.value;
             }
         }
-    }
+    )
 }
 laodQuestion();
